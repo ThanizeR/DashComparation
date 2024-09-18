@@ -1,0 +1,5 @@
+# .slugignore
+.git/
+tests/
+docs/
+large_files/
