@@ -1,5 +1,6 @@
-dash==2.11.0
-numpy==1.23.5
-pillow==9.4.0
-tensorflow==2.14.0
+dash
+pillow
+numpy
+keras
+tensorflow
 gunicorn
