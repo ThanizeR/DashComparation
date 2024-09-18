@@ -52,7 +52,7 @@ def predict_diabetes(user_input):
 
 # Initialize the Dash app
 app = dash.Dash(__name__)
-server = app.server
+server = main.server
 app.layout = html.Div([
     dcc.Tabs(id='tabs', value='home', children=[
         dcc.Tab(label='Página Inicial', value='home'),
