@@ -14,7 +14,7 @@ def predict_malaria(img):
         img = np.asarray(img)
         img = img.reshape((1, 36, 36, 3))
         img = img.astype(np.float64)
-        model = load_model("malaria.h5")
+        model = load_model("/Users/thanizeassuncaorodrigues/Documents/GitHub/DiagnoSys/models/malaria.h5")
         pred_probs = model.predict(img)[0]
         pred_class = np.argmax(pred_probs)
         pred_prob = pred_probs[pred_class]
@@ -30,7 +30,7 @@ def predict_pneumonia(img):
         img = np.asarray(img)
         img = img.reshape((1, 36, 36, 1))
         img = img / 255.0
-        model = load_model("pneumonia.h5")
+        model = load_model("/Users/thanizeassuncaorodrigues/Documents/GitHub/DiagnoSys/models/pneumonia.h5")
         pred_probs = model.predict(img)[0]
         pred_class = np.argmax(pred_probs)
         pred_prob = pred_probs[pred_class]
@@ -42,7 +42,7 @@ def predict_pneumonia(img):
 def predict_diabetes(user_input):
     try:
         user_input = [float(x) for x in user_input]
-        with open('diabetes_model.sav', 'rb') as file:
+        with open('/Users/thanizeassuncaorodrigues/Documents/GitHub/DiagnoSys/models/diabetes_model.sav', 'rb') as file:
             diabetes_model = pickle.load(file)
         diab_prediction = diabetes_model.predict([user_input])
         return 'A pessoa é diabética' if diab_prediction[0] == 1 else 'A pessoa não é diabética'
@@ -52,7 +52,7 @@ def predict_diabetes(user_input):
 
 # Initialize the Dash app
 app = dash.Dash(__name__)
-server = main.server
+
 app.layout = html.Div([
     dcc.Tabs(id='tabs', value='home', children=[
         dcc.Tab(label='Página Inicial', value='home'),
